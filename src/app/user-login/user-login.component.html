@@ -1,0 +1,54 @@
+<div class="container-fluid">
+<!-- <div class="container Main-container"> -->
+    
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="container Main-container">
+            <div class="header-cont">
+            <header>
+                <h1>Welcome to the world of books!</h1>
+            </header>
+            </div>
+        <div class="container ">
+            <div class="form-group">
+            <label>UserName: </label>
+            <input type="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid':submitted && loginForm.controls.email.errors}"
+            placeholder="Enter UserName" name="UserName"/>
+            <div *ngIf="submitted && loginForm.controls.email.errors" class="text-danger">
+                <div *ngIf="submitted && loginForm.controls.email.errors.required" >
+                    Email Field is required
+                </div>
+                <div *ngIf="submitted && loginForm.controls.email.errors.email">
+                        Email is not valid
+                </div>
+            </div>
+            </div>
+            <br>
+        
+                    
+            <div class="form-group">
+            <label>Password: </label>
+            <input type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid':submitted && loginForm.controls.password.errors}"
+             placeholder="Enter Password"/>
+             <div *ngIf="submitted && loginForm.controls.password.errors.required"  class="text-danger">
+                password is required
+             </div>
+
+             <div *ngIf="submitted && loginForm.controls.password.errors.minLength">
+                password should be at least 8 charscters
+             </div>
+            </div>
+            <br>
+             <br> 
+                     
+                    
+            <button class="btn btn-primary" type="submit" >Submit</button>  
+        </div>
+            </div>
+        
+        </form>
+
+        
+
+    </div>
+  
+               
